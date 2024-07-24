@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form th:action="@{/student}" th:object="${student}" method="post" >
+    <label for="firstName">First Name</label>
+    <input type="text" th:field="*{firstName}" name="firstName" id="firstName">
+    <label for="lastName">Last Name</label>
+    <input type="text" th:field="*{lastName}" name="lastName" id="lastName">
+    <sp th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" />
+    <label for="freePasses" >Free Passes</label>
+    <input type="text" th:field="*{freePasses}" name="freePasses" id="freePasses">
+    <sp style="color: red;" th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" />
+    <label for="courseCode">Course Code</label>
+    <input type="text" th:field="*{courseCode}" name="courseCode" id="courseCode">
+    <sp style="color: red;" th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" />
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
